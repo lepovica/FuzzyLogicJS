@@ -1,7 +1,7 @@
 var FuzzyModule = require('./FuzzyModule');
 var FuzzyTerm = require('./FuzzyTerm');
 
-var attackModule = function() {
+var AttackModule = function() {
 
     this.fzmod = new FuzzyModule();
 
@@ -58,5 +58,5 @@ var attackModule = function() {
 
 }
 
-var a = new attackModule();
+var a = new AttackModule();
 console.log(a.getCrispValue(47900, 5));
