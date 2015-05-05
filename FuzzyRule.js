@@ -1,18 +1,10 @@
-var FuzzyTriangleSet = require("./FuzzyTriangleSet");
-var FuzzyLeftShoulderSet = require("./FuzzyLeftShoulderSet");
-var FuzzyRightShoulderSet = require("./FuzzyRightShoulderSet");
-
-
 module.exports = function(antecedent, consequent) {
-	var core = {
-		_ant : antecedent,
-		_con : consequent,
-		setConfidenceOfConsequentToZero : function() {
-			core._con.clearDOM();
-		},
-		calculate: function() {
-			core._con.ORwithDOM(core._ant.getDOM());
-		}
-	}
-	return core;
-}
+    this._ant = antecedent;
+    this._con = consequent;
+};
+module.exports.prototype.setConfidenceOfConsequentToZero = function() {
+    this._con.clearDOM();
+};
+module.exports.prototype.calculate = function() {
+    this._con.ORwithDOM(this._ant.getDOM());
+};
