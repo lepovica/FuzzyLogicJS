@@ -13,7 +13,7 @@ module.exports.prototype.calculateDOM = function(value) {
     if ((this._rightOffset === 0.0) && (value === this._peakPoint)) {
         return 1.0;
     }
-    if ((value >= this._peakPoint) && (value < (this._peakPoint - this._rightOffset))) {
+    if ((value >= this._peakPoint) && (value < (this._peakPoint + this._rightOffset))) {
         var grad = 1.0 / this._rightOffset;
         return grad * (value - (this._peakPoint - this._rightOffset));
     } else {
