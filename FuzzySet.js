@@ -1,21 +1,21 @@
-function FuzzySet(name, leftOffset, peakPoint, rightOffset) {
-    _repValue: peakPoint,
-    _DOM: 0.0
-}
-
-FuzzySet.prototype = {
-    clearDOM: function() {
-        core._DOM = 0.0;
-    },
-    setDOM: function(value) {
-        core._DOM = value;
-    },
-    getDOM: function(value) {
-        return core._DOM;
-    },
-    ORwithDOM: function(value) {
-        if (core._DOM < value) {
-            core.setDOM(value);
+module.exports = function FuzzySet(repValue) {
+    this._repValue = repValue;
+    this._DOM = 0.0;
+    this.getRepValue = function() {
+        return this._repValue;
+    }
+    this.clearDOM = function() {
+        this._DOM = 0.0;
+    }
+    this.setDOM = function(value) {
+        this._DOM = value;
+    }
+    this.getDOM = function() {
+        return this._DOM;
+    }
+    this.ORwithDOM = function(value) {
+        if (this._DOM < value) {
+            this.setDOM(value);
         }
     }
 }
