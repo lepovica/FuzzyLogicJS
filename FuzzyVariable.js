@@ -51,10 +51,10 @@ module.exports.prototype.deFuzzify = function(confidenceMap) { //maxAv method
     for (key in this._memberSets) {
         var confidence = confidenceMap[key];
         var repValue = this._memberSets[key]._repValue;
-        sumOfConfidenceMultiplyRepValue += confidence * repValue;
+        sumOfConfidenceMultiplyRepValue += (confidence * repValue);
         sumOfConfidence += confidence;
     }
-    var crispValue = sumOfConfidenceMultiplyRepValue / sumOfConfidence;
+    var crispValue = (sumOfConfidenceMultiplyRepValue / sumOfConfidence);
     if (isNaN(crispValue)) {
         crispValue = 0.0;
     }
