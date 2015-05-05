@@ -1,19 +1,19 @@
 var FuzzyTerm = require('./FuzzyTerm');
-var FuzzyTriangleSet = require('./FuzzyTriangleSet');
+var FuzzyRightShoulderSet = require('./FuzzyRightShoulderSet');
 var FuzzyRule = require('./FuzzyRule');
 
-var set = new FuzzyTriangleSet("close", 20, 50, 30);
+var set = new FuzzyRightShoulderSet("close", 20, 50, 30);
 
 set.setDOM(set.calculateDOM(39));
 
 console.log(set);
 
-var set2 = new FuzzyTriangleSet("ammo", 15, 15, 35);
+var set2 = new FuzzyRightShoulderSet("ammo", 15, 15, 35);
 set2.setDOM(set2.calculateDOM(18));
 
 console.log(set2);
 
-var set3 = new FuzzyTriangleSet("desirable", 20, 100, 0);
+var set3 = new FuzzyRightShoulderSet("desirable", 20, 100, 0);
 console.log(set3);
 
 var ant = new FuzzyTerm(set).fzAndWith(new FuzzyTerm(set2));
