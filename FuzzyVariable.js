@@ -10,8 +10,6 @@ module.exports = function FuzzyVariable(name) {
     this._maxRange = 0.0;
 };
 module.exports.prototype.adjustRanges = function(left, right) {
-    console.log(this._minRange);
-    console.log(this._maxRange);
     if (left < this._minRange) {
         this._minRange = left;
     };
