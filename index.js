@@ -1,24 +1,9 @@
 var FuzzyTerm = require('./FuzzyTerm');
-var FuzzySet = require('./FuzzySet');
+var FuzzyTriangleSet = require('./FuzzyTriangleSet');
+var FuzzyRule = require('./FuzzyRule');
 
-var set = new FuzzySet("close", 59);
+var set = new FuzzyTriangleSet("close", 20, 50, 30);
 
-set.setDOM(10);
-set.ORwithDOM(20);
+set.setDOM(set.calculateDOM(39));
+
 console.log(set);
-
-var term = new FuzzyTerm(set);
-console.log(term);
-term.setDOM(60);
-console.log(term.getDOM());
-term.clearDOM();
-console.log(term.getDOM());
-term.ORwithDOM(30);
-console.log(term.getDOM());
-term.setName("far");
-console.log(term.getName());
-
-var term2 = new FuzzyTerm(set);
-console.log(term2.fzOrWith(term));
-term2.setDOM(20);
-console.log(term2.fzAndWith(term));
