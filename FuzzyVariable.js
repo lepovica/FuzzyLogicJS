@@ -1,61 +1,62 @@
 var FuzzyTriangleSet = require("./FuzzyTriangleSet");
 var FuzzyLeftShoulderSet = require("./FuzzyLeftShoulderSet");
 var FuzzyRightShoulderSet = require("./FuzzyRightShoulderSet");
+var FuzzyTrapezoidSet = require('./FuzzyTrapezoidSet');
 
-module.exports = function(name) {
-	var core = {
-		_name : name,
-		_memberSets : {},
-		_minRange : 0.0,
-		_maxRange : 0.0,
-		adjustRanges : function(left, right) {
-			if ( left < core._minRange) {core._minRange = left;}
-			if ( right < core._maxRange) {core._maxRange = right};
-		},
-		addTriangleSet: function(setName, leftBound, peakPoint, rightBound) {
-			var newSet = FuzzyTriangleSet(setName, peakPoint - leftBound, peakPoint, rightBound - peakPoint);
-			core._memberSets[setName] = newSet;
-			core.adjustRanges(leftBound, rightBound);
-			return newSet;
-		},
-		addLeftShoulderSet : function(setName, leftBound, peakPoint, rightBound){
-			var newSet = FuzzyLeftShoulderSet(setName, peakPoint - leftBound, peakPoint, rightBound - peakPoint);
-			core._memberSets[setName] = newSet;
-			core.adjustRanges(leftBound, rightBound);
-			return newSet;
-		},
-		addRightShoulderSet : function(setName, leftBound, peakPoint, rightBound) {
-			var newSet = FuzzyRightShoulderSet(setName, peakPoint - leftBound, peakPoint, rightBound - peakPoint);
-			core._memberSets[setName] = newSet;
-			core.adjustRanges(leftBound, rightBound);
-			return newSet;
-		},
-		addRectangularSet : function(setName, leftBound, peakPoint, rightBound) {
-			var newSet = FuzzyRectangularSet(setName, peakPoint - leftBound, peakPoint, rightBound - peakPoint);
-			core._memberSets[setName] = newSet;
-			core.adjustRanges(leftBound, rightBound);
-			return newSet;
-		},
-		fuzzify: function(value) {
-			for(key in core._memberSets) {
-				core._memberSets[key].setDOM(core._memberSets[key].calculateDOM(value));
-			}
-		},
-		deFuzzify : function(confidenceMap) { //maxAv method
-			var sumOfConfidenceMultiplyRepValue = 0.0;
-			var sumOfConfidence = 0.0;
-			for(key in core._memberSets) {
-				var confidence = confidenceMap[key];
-				var repValue = core._memberSets[key]._repValue;
-				sumOfConfidenceMultiplyRepValue += confidence*repValue;
-				sumOfConfidence += confidence;
-			}
-			var crispValue = sumOfConfidenceMultiplyRepValue / sumOfConfidence;
-			if(isNaN(crispValue)) {
-				crispValue = 0.0;
-			}
-			return crispValue;
-		}
-	}
-	return core;
-}
+module.exports = function FuzzyVariable(name) {
+    this._name = name;
+    this._memberSets = {};
+    this._minRange = 0.0;
+    this._maxRange = 0.0;
+};
+module.exports.prototype.adjustRanges = function(left, right) {
+    console.log(this._minRange);
+    console.log(this._maxRange);
+    if (left < this._minRange) {
+        this._minRange = left;
+    };
+    if (right > this._maxRange) {
+        this._maxRange = right;
+    };
+};
+module.exports.prototype.addTriangleSet = function(setName, leftBound, peakPoint, rightBound) {
+    this._memberSets[setName] = new FuzzyTriangleSet(setName, peakPoint - leftBound, peakPoint, rightBound - peakPoint);
+    this.adjustRanges(leftBound, rightBound);
+    return this._memberSets[setName];
+};
+module.exports.prototype.addLeftShoulderSet = function(setName, leftBound, peakPoint, rightBound) {
+
+    this._memberSets[setName] = new FuzzyLeftShoulderSet(setName, peakPoint - leftBound, peakPoint, rightBound - peakPoint);
+    this.adjustRanges(leftBound, rightBound);
+    return this._memberSets[setName];
+};
+module.exports.prototype.addRightShoulderSet = function(setName, leftBound, peakPoint, rightBound) {
+    this._memberSets[setName] = new FuzzyRightShoulderSet(setName, peakPoint - leftBound, peakPoint, rightBound - peakPoint);
+    this.adjustRanges(leftBound, rightBound);
+    return this._memberSets[setName];
+};
+module.exports.prototype.addTrapezoidSet = function(setName, leftBound, leftPeakPoint, rightPeakPoint, rightBound) {
+    this._memberSets[setName] = new FuzzyTrapezoidSet(setName, leftPeakPoint - leftBound, leftPeakPoint, rightPeakPoint, rightBound - rightPeakPoint);
+    this.adjustRanges(leftBound, rightBound);
+    return this._memberSets[setName];
+};
+module.exports.prototype.fuzzify = function(value) {
+    for (key in this._memberSets) {
+        this._memberSets[key].setDOM(this._memberSets[key].calculateDOM(value));
+    }
+};
+module.exports.prototype.deFuzzify = function(confidenceMap) { //maxAv method
+    var sumOfConfidenceMultiplyRepValue = 0.0;
+    var sumOfConfidence = 0.0;
+    for (key in this._memberSets) {
+        var confidence = confidenceMap[key];
+        var repValue = this._memberSets[key]._repValue;
+        sumOfConfidenceMultiplyRepValue += confidence * repValue;
+        sumOfConfidence += confidence;
+    }
+    var crispValue = sumOfConfidenceMultiplyRepValue / sumOfConfidence;
+    if (isNaN(crispValue)) {
+        crispValue = 0.0;
+    }
+    return crispValue;
+};
