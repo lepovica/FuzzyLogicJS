@@ -25,8 +25,8 @@ module.exports.prototype.calculateDOM = function(value) {
                 return 1.0;
             }
             if ((value >= this._rightPeakPoint) && (value < (this._rightPeakPoint + this._rightOffset))) {
-                var grad = 1.0 / this._rightOffset;
-                return grad * (value - (this._rightPeakPoint - this._rightOffset));
+                var grad = 1.0 / -this._rightOffset;
+                return grad * (value - this._rightPeakPoint) + 1.0;
             } else {
                 if (value < this._rightPeakPoint) {
                     return 1.0;
