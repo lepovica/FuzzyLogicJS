@@ -20,6 +20,9 @@ galaxies and planets. But we are not alone there are other players which are try
 This is a complex task. For my example I will use only the size of the planets (representing 
 the profit of colonizing the planet) and distance (representing the cost of colonizing the planet).
 
+Usage
+=====
+
 Defining a module for choosing a planet for attack.
 ---------------------------------------------------
  You only need to create an instance of FuzzyModule.
@@ -60,11 +63,13 @@ this.big_target = this.sizeFLV.addRightShoulderSet("big", 6, 8, 10);
 
 Here is the time when we notice that fuzzy sets and fuzzy linguistic variables are very
 comfortable to express human's assessment when making a desicion. It depends on many things with different values depends on what the values mesearues. To achive a good assessment you need to use good
-numbers. This depends on the values that the game uses in its own logic. In the distance we use big numbers because in the space distances between two planets are very big even measured in ligth years.
+numbers. This depends on the values that the game uses in its own logic and your own assessment.
+In the distance we use big numbers because in the space distances between two planets are very
+big even measured in ligth years.
 
 We almost define all the variables we need. With the same method we can define linguistic
 variable to measure the choice of our planet. Simply add one more variable called desirability.
-You can choose another name but this is seems most accurate to me in the case of chosing planet
+You can choose another name but this seems most accurate to me in the case of chosing planet
 to attack.
 
 ```dart
