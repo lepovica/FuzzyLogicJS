@@ -62,13 +62,18 @@ this.big_target = this.sizeFLV.addRightShoulderSet("big", 6, 8, 10);
 ```
 
 Here is the time when we notice that fuzzy sets and fuzzy linguistic variables are very
-comfortable to express human's assessment when making a decision. It depends on many things with different values depends on what the values measures. To achieve a good assessment you need to use good
+comfortable to express human's assessment when making a decision. It depends on many things with different values depends on what the values measures.
+
+
+Is up to us to chose the member function of our fuzzy set. The member function is defined by the bounds
+of the set and it's shape. Most used are triangle and trapezoid sets. In distance we choose left
+shoulder set for close_to_target so when is very close (< 9000) we get maximum degree of membership.
+When is between 9000 and 40000 the degree of membership for close_to_target goes down, but the degree of
+membership of average_to_target goes up. To achieve a good assessment you need to use good
 numbers. This depends on the values that the game uses in its own logic and your own assessment.
 In the distance we use big numbers because in the space distances between two planets are very
 big even measured in light years. And our assessment tells us the crisp values of the sets. Where
-close begin and ends, and when the average starts and end etc.. Also is up to us to chose the member
-function of our fuzzy set. The member function is defined by the bounds of the set and it's shape.
-Most used are triangle and trapezoid sets.
+close begin and ends, and when the average starts and end etc.. 
 
 
 NOTE:
