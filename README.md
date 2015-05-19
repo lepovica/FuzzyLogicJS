@@ -19,9 +19,6 @@ We are in the middle of a galaxy and we are trying to conquer the universe with 
 galaxies and planets. But we are not alone there are other players which are trying the same thing.
 This is a complex task. For my example I will use only the size of the planets (representing 
 the profit of colonizing the planet) and distance (representing the cost of colonizing the planet).
-So the values like close, average, far are the different Fuzzy Sets. This Fuzzy Sets in a composition
- are representing a Fuzzy linguistic variable distance to that planet. Same for small, medium, big and
- size of the planet. Our choice will depend only on the size and distance to target.
 
 Defining a module for choosing a planet for attack.
 ---------------------------------------------------
@@ -38,6 +35,11 @@ Defining a module for choosing a planet for attack.
 
 Define a linguistic variables
 -----------------------------
+So the values like close, average, far are the different Fuzzy Sets. This Fuzzy Sets in a composition
+ are representing a Fuzzy linguistic variable distance to that planet. Same for small, medium, big and
+ size of the planet. Our choice will depend only on the size and distance to target. Fuzzy Sets are also
+ called fuzzy terms.
+
  Using ```FuzzyModule.createFLV("name of FLV")``` you can create as many as you want linguistic
  variables.
 
@@ -55,7 +57,11 @@ this.medium_target = this.sizeFLV.addTriangleSet("medium", 3, 6, 8);
 this.big_target = this.sizeFLV.addRightShoulderSet("big", 6, 8, 10);
 ```
 
-So we almost define all the variables we need. With the same method we can define linguistic
+Here is the time when we notice that fuzzy sets and fuzzy linguistic variables are very
+comfortable to express human's assessment when making a desicion. It depends on many things with different values depends on what the values mesearues. To achive a good assessment you need to use good
+numbers. This depends on the values that the game uses in its own logic. In the distance we use big numbers because in the space distances between two planets are very big even measured in ligth years.
+
+We almost define all the variables we need. With the same method we can define linguistic
 variable to measure the choice of our planet. Simply add one more variable called desirability.
 You can choose another name but this is seems most accurate to me in the case of chosing planet
 to attack.
