@@ -62,10 +62,23 @@ this.big_target = this.sizeFLV.addRightShoulderSet("big", 6, 8, 10);
 ```
 
 Here is the time when we notice that fuzzy sets and fuzzy linguistic variables are very
-comfortable to express human's assessment when making a desicion. It depends on many things with different values depends on what the values mesearues. To achive a good assessment you need to use good
+comfortable to express human's assessment when making a decision. It depends on many things with different values depends on what the values measures. To achieve a good assessment you need to use good
 numbers. This depends on the values that the game uses in its own logic and your own assessment.
 In the distance we use big numbers because in the space distances between two planets are very
-big even measured in ligth years.
+big even measured in light years. And our assessment tells us the crisp values of the sets. Where
+close begin and ends, and when the average starts and end etc.. Also is up to us to chose the member
+function of our fuzzy set. The member function is defined by the bounds of the set and it's shape.
+Most used are triangle and trapezoid sets.
+
+
+NOTE:
+-----
+When you are defining your Fuzzy Sets for a given linguistic variable, make sure that the bounds of each
+set (except the left bound of the first and the right bound of the last) to be exactly the peak point
+of their neighbours. For example the left bound of ```close_to_target = 0``` because it is the first.
+But it's right bound is ```40000``` which is exactly the peak point of his rigth neighbour. For 
+```average_to_target``` we have left bound ```9000``` which is the peak point of his left neighbour 
+```close_to_target``` and the right bound ```60000``` which is the peak point of the his right neighbour ```far_to_target```.
 
 We almost define all the variables we need. With the same method we can define linguistic
 variable to measure the choice of our planet. Simply add one more variable called desirability.
@@ -79,17 +92,7 @@ this.undesirable = this.desirabilityFLV.addLeftShoulderSet("undesirable", 0, 30,
 this.desirable = this.desirabilityFLV.addTriangleSet("desirable", 30, 50, 70);
 this.very_desirable = this.desirabilityFLV.addRightShoulderSet("very_desirable", 50, 70, 100);
 ```
-Later we will use this variable to get crisp value of the choice
-
-
-NOTE:
------
-When you are defining your Fuzzy Sets for a given linguistic variable, make sure that the bounds of each
-set (except the left bound of the first and the right bound of the last) to be exactly the peak point
-of their neighbours. For example the left bound of ```close_to_target = 0``` because it is the first.
-But it's right bound is ```40000``` which is exactly the peak point of his rigth neighbour. For 
-```average_to_target``` we have left bound ```9000``` which is the peak point of his left neighbour 
-```close_to_target``` and the right bound ```60000``` which is the peak point of the his right neighbour ```far_to_target```.
+Later we will use this variable to get crisp value of the choice.
 
 
 Declaring rules
