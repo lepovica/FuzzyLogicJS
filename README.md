@@ -24,10 +24,11 @@ Defining a module for choosing a planet for attack.
 ---------------------------------------------------
  You only need to create an instance of FuzzyModule.
 
- ```dart
- var FuzzyModule = require('./FuzzyModule');
- var FuzzyTerm = require('./FuzzyTerm')
- var AttackModule = function() {
+```dart
+var FuzzyModule = require('./FuzzyModule');
+var FuzzyTerm = require('./FuzzyTerm')
+
+var AttackModule = function() {
 
     this.fzmod = new FuzzyModule();
 }
