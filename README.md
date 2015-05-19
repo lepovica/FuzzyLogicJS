@@ -23,6 +23,10 @@ the profit of colonizing the planet) and distance (representing the cost of colo
 Usage
 =====
 
+Install npm package
+-------------------
+Using ```npm install fuzzymodule```. Check out https://www.npmjs.com/package/fuzzymodule
+
 Defining a module for choosing a planet for attack.
 ---------------------------------------------------
  You only need to create an instance of FuzzyModule.
