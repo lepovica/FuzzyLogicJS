@@ -24,6 +24,9 @@ module.exports.prototype.getFLV = function(variableName) {
         return this.createFLV(variableName);
     }
 }
+module.exports.prototype.makeNewFuzzyTerm = function(fuzzySet) {
+    return new FuzzyTerm(fuzzySet);
+};
 module.exports.prototype.addRule = function(antecedent, consequence) {
     // console.log("antecedent", antecedent)
     var newRule = new FuzzyRule(antecedent, consequence);

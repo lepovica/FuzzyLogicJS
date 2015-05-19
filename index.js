@@ -1,5 +1,4 @@
 var FuzzyModule = require('./FuzzyModule');
-var FuzzyTerm = require('./FuzzyTerm');
 
 var attackModule = function() {
 
@@ -24,17 +23,17 @@ var attackModule = function() {
     this.very_desirable = this.desirabilityFLV.addRightShoulderSet("very_desirable", 50, 70, 100);
 
     this.declareRules = function() {
-        var close = new FuzzyTerm(this.close_to_target);
-        var average = new FuzzyTerm(this.average_to_target);
-        var far = new FuzzyTerm(this.far_to_target);
+        var close = this.fzmod.makeNewFuzzyTerm(this.close_to_target);
+        var average = this.fzmod.makeNewFuzzyTerm(this.average_to_target);
+        var far = this.fzmod.makeNewFuzzyTerm(this.far_to_target);
 
-        var small = new FuzzyTerm(this.small_target);
-        var medium = new FuzzyTerm(this.medium_target);
-        var big = new FuzzyTerm(this.big_target);
+        var small = this.fzmod.makeNewFuzzyTerm(this.small_target);
+        var medium = this.fzmod.makeNewFuzzyTerm(this.medium_target);
+        var big = this.fzmod.makeNewFuzzyTerm(this.big_target);
 
-        var desirable = new FuzzyTerm(this.desirable);
-        var undesirable = new FuzzyTerm(this.undesirable);
-        var very_desirable = new FuzzyTerm(this.very_desirable);
+        var desirable = this.fzmod.makeNewFuzzyTerm(this.desirable);
+        var undesirable = this.fzmod.makeNewFuzzyTerm(this.undesirable);
+        var very_desirable = this.fzmod.makeNewFuzzyTerm(this.very_desirable);
 
         this.fzmod.addRule(close.fzAndWith(small), desirable);
         this.fzmod.addRule(close.fzAndWith(medium), desirable);

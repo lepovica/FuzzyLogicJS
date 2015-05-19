@@ -1,0 +1,27 @@
+{
+  "name": "fuzzymodule",
+  "version": "1.0.0",
+  "description": "Using Fuzzy Logic to get crisp value for linguistic variables.",
+  "main": "FuzzyModule.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lepovica/FuzzyLogicJS.git"
+  },
+  "keywords": [
+    "Fuzzy",
+    "logic",
+    "fuzzy",
+    "crisp",
+    "linguistic",
+    "variable"
+  ],
+  "author": "lepovica <lepovica@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lepovica/FuzzyLogicJS/issues"
+  },
+  "homepage": "https://github.com/lepovica/FuzzyLogicJS"
+}
