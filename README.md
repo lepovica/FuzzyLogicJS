@@ -20,9 +20,10 @@ So the values like close, average, far are the different Fuzzy Sets. This Fuzzy 
  are representing a Fuzzy linguistic variable distance to that planet. Same for small, medium, big and
  size of the planet. Our choice will depend only on the size and distance to target.
 
-
- ### 1 Defining a module for choosing a planet for attack.
- ```
+ 1. Defining a module for choosing a planet for attack.
+ ------------------------------------------------------
+ 
+ ```dart
  var AttackModule = function() {
 
     this.fzmod = new FuzzyModule();
