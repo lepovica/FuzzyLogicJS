@@ -28,7 +28,7 @@ Defining a module for choosing a planet for attack.
  You only need to create an instance of FuzzyModule.
 
 ```dart
-var FuzzyModule = require('./FuzzyModule');
+var FuzzyModule = require('fuzzymodule');
 
 var AttackModule = function() {
 
@@ -184,7 +184,7 @@ If we make this for a thousand planets the planet with biggest value of desirabi
 In a result we have an AttackModule for our AI which will conquer the universe.
 
 ```dart
-var FuzzyModule = require('./FuzzyModule');
+var FuzzyModule = require('fuzzymodule');
 
 var AttackModule = function() {
 
