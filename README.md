@@ -72,8 +72,7 @@ When is between 9000 and 40000 the degree of membership for close_to_target goes
 membership of average_to_target goes up. To achieve a good assessment you need to use good
 numbers. This depends on the values that the game uses in its own logic and your own assessment.
 In the distance we use big numbers because in the space distances between two planets are very
-big even measured in light years. And our assessment tells us the crisp values of the sets. Where
-close begin and ends, and when the average starts and end etc.. 
+big even measured in light years. And our assessment tells us the values of the bounds for this sets. Where close_to_target begins and ends, and when the average_to_target starts and ends etc.. 
 
 
 NOTE:
